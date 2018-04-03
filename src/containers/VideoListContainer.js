@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
 import VideoList from './../components/VideoList.js';
 import changeVideo from './../actions/currentVideo.js';
-import { bindActionCreators } from 'redux';
 
 var VideoListContainer = (state) => {
   return {
-    videos: state.video
+    videos: state.videoList
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ changeVideo: changeVideo }, dispatch);
+  return { handleVideoListEntryTitleClick: (video) => dispatch(changeVideo(video)) };
   //take all actions and pass them to all the reducers in applications
 };
 

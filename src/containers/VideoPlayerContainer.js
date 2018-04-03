@@ -3,7 +3,7 @@ import VideoPlayer from '../components/VideoPlayer.js';
 
 var VideoPlayerContainer = (state) => {
   return {
-    video: state.video
+    video: state.currentVideo
   };
 };
 

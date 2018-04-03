@@ -9,14 +9,15 @@ var handleVideoSearch = (q) => {
     searchYouTube({
       key: YOUTUBE_API_KEY, 
       query: q,
-    }, (err, res) => {
-      return dispatch(
-        changeVideo({type: 'CHANGE_VIDEO', payload: res}),
-        changeVideoList({type: 'CHANGE_VIDEO_LIST', payload: res})
-      );
+      max: 5,
+    }, (res) => {
+      dispatch(changeVideo(res[0]));
+      dispatch(changeVideoList(res));
     });
   };
   //TODO:  Write an asynchronous action to handle a video search!
 };
+
+
 
 export default handleVideoSearch;
